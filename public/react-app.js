@@ -937,6 +937,9 @@ function DashboardApp() {
   function onChangeStudySpan(days) {
     setStudySpanDays(days);
     setStudyPage(0);
+    if (days === 7) {
+      setEndDate(toLocalDateValue(new Date()));
+    }
   }
 
   function goToOlderStudyPage() {
@@ -945,6 +948,12 @@ function DashboardApp() {
 
   function goToNewerStudyPage() {
     setStudyPage((prev) => Math.max(0, prev - 1));
+  }
+
+  function goToCurrentStudyWeek() {
+    setStudySpanDays(7);
+    setStudyPage(0);
+    setEndDate(toLocalDateValue(new Date()));
   }
 
   async function onChangeScheduleCalendar(calendarId) {
@@ -1343,7 +1352,7 @@ function DashboardApp() {
                 </div>
                 <div className="inline-flex items-center rounded-lg border border-zinc-700">
                   <button type="button" className="rounded-l-lg px-3 py-2 text-xs text-zinc-300 hover:bg-zinc-800" onClick=${goToOlderStudyPage}>← 前</button>
-                  <button type="button" className="border-l border-r border-zinc-700 px-3 py-2 text-xs text-zinc-300 hover:bg-zinc-800" onClick=${() => setStudyPage(0)}>今週</button>
+                  <button type="button" className="border-l border-r border-zinc-700 px-3 py-2 text-xs text-zinc-300 hover:bg-zinc-800" onClick=${goToCurrentStudyWeek}>今週</button>
                   <button type="button" className="rounded-r-lg px-3 py-2 text-xs text-zinc-300 hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-40" onClick=${goToNewerStudyPage} disabled=${studyPage === 0}>次 →</button>
                 </div>
               </div>
