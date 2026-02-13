@@ -1342,9 +1342,9 @@ function DashboardApp() {
                   `)}
                 </div>
                 <div className="inline-flex items-center rounded-lg border border-zinc-700">
-                  <button type="button" className="rounded-l-lg px-3 py-2 text-xs text-zinc-300 hover:bg-zinc-800" onClick=${goToOlderStudyPage}>← 古い</button>
-                  <span className="border-l border-r border-zinc-700 px-3 py-2 text-xs text-zinc-400">ページ ${studyPage + 1}</span>
-                  <button type="button" className="rounded-r-lg px-3 py-2 text-xs text-zinc-300 hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-40" onClick=${goToNewerStudyPage} disabled=${studyPage === 0}>新しい →</button>
+                  <button type="button" className="rounded-l-lg px-3 py-2 text-xs text-zinc-300 hover:bg-zinc-800" onClick=${goToOlderStudyPage}>← 前</button>
+                  <button type="button" className="border-l border-r border-zinc-700 px-3 py-2 text-xs text-zinc-300 hover:bg-zinc-800" onClick=${() => setStudyPage(0)}>今週</button>
+                  <button type="button" className="rounded-r-lg px-3 py-2 text-xs text-zinc-300 hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-40" onClick=${goToNewerStudyPage} disabled=${studyPage === 0}>次 →</button>
                 </div>
               </div>
             </div>
