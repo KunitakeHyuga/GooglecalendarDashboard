@@ -22,7 +22,7 @@ Googleアカウントでブラウザ認証し、Googleカレンダーの予定�
 
 ## 設定
 
-`public/app-config.js` と `docs/app-config.js` の `googleClientId` を設定:
+`public/app-config.js` の `googleClientId` を設定:
 
 ```js
 window.APP_CONFIG = {
@@ -43,4 +43,4 @@ npm run dev
 2. `main` ブランチへ push
 3. Actions の `Deploy GitHub Pages` が完了すると公開
 
-Pages 配信用ファイルは `docs/` 配下です。
+Pages 配信用ファイルは GitHub Actions 内で自動生成されるため、`docs/` の手動更新は不要です。

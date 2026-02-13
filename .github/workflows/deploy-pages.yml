@@ -26,11 +26,20 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Build site artifact
+        run: |
+          mkdir -p _site
+          cp views/dashboard.html _site/index.html
+          cp public/react-app.js _site/react-app.js
+          cp public/app-config.js _site/app-config.js
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: _site
 
       - name: Deploy
         id: deployment
